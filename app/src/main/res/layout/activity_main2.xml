@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/dispositivoBuscadoTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:text="Este es el dispositivo que estamos buscando"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/datosBluetoothMajor"
+        app:layout_constraintStart_toStartOf="@+id/datosBluetoothMajor"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/scaneoStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Estado del escaneo"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/datosBluetoothMajor"
+        app:layout_constraintStart_toStartOf="@+id/datosBluetoothMajor"
+        app:layout_constraintTop_toBottomOf="@+id/dispositivoBuscadoTextView" />
+
+    <TextView
+        android:id="@+id/datosBluetoothMajor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Major: X"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/botonBuscarNuestroDispositivoBTLE"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scaneoStatus"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/botonBuscarNuestroDispositivoBTLE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="botonBuscarNuestroDispositivoBTLEPulsado"
+        android:text="Buscar Dispositivo"
+        app:layout_constraintBottom_toTopOf="@+id/botonDetenerBusquedaDispositivosBTLE"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/botonDetenerBusquedaDispositivosBTLE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="200dp"
+        android:onClick="botonDetenerBusquedaDispositivosBTLEPulsado"
+        android:text="Detener Dispositivo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/botonBuscarNuestroDispositivoBTLE"
+        app:layout_constraintStart_toStartOf="@+id/botonBuscarNuestroDispositivoBTLE" />
+</androidx.constraintlayout.widget.ConstraintLayout>

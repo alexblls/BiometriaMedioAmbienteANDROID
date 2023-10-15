@@ -6,12 +6,9 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.le.BluetoothLeScanner;
 import android.bluetooth.le.ScanCallback;
-import android.bluetooth.le.ScanFilter;
 import android.bluetooth.le.ScanResult;
-import android.bluetooth.le.ScanSettings;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -22,12 +19,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 
 //Librerias para la fecha
 import java.time.LocalDateTime;
@@ -172,9 +165,9 @@ public class MainActivity extends AppCompatActivity {
         majorTextView.setText(majorString);
 
         // Bytes de minor
-        TextView minorTextView = findViewById(R.id.datosBluetoothMinor);
-        String minorString = "Minor: " + Utilidades.bytesToInt(tib.getMinor());
-        minorTextView.setText(minorString);
+        //TextView minorTextView = findViewById(R.id.datosBluetoothMinor);
+        //String minorString = "Minor: " + Utilidades.bytesToInt(tib.getMinor());
+        //minorTextView.setText(minorString);
 
         LocalDateTime fechaHoraActual = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
@@ -267,6 +260,12 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
         this.elEscanner.stopScan(this.callbackDelEscaneo);
+        TextView majorTextView = findViewById(R.id.datosBluetoothMajor);
+        TextView scanTextView = findViewById(R.id.scaneoStatus);
+
+        scanTextView.setText("Escaneo detenido");
+        majorTextView.setText("Major: X");
+
         this.callbackDelEscaneo = null;
 
     } // ()
@@ -352,7 +351,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main2);
 
         Log.d(ETIQUETA_LOG, " onCreate(): empieza ");
 
